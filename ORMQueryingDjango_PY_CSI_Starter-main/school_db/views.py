@@ -1,4 +1,5 @@
 from itertools import count
+from sys import stdlib_module_names
 from django.shortcuts import render
 from django.db.models import Count
 from django.core.exceptions import ObjectDoesNotExist
@@ -260,7 +261,18 @@ SELECT COUNT(*) AS `__count`
 # Print the new student's id, full name, year, and gpa to the terminal
 # NOTE every time you execute this function a duplicate student will be created with a different primary key number
 def problem_five(request):
-    
+    student = Student()
+    student.first_name = 'Fred'
+    student.last_name = 'Morris'
+    student.year = 5
+    student.gpa = 3.3
+    student.save()
+    print(f"""
+    Id: {student.id}
+    Full Name: {student.first_name} {student.last_name}
+    Year: {student.year}
+    GPA: {student.gpa}
+    """)
 
     return complete(request)
 
