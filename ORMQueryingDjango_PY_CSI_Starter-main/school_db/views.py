@@ -1,3 +1,4 @@
+from itertools import count
 from django.shortcuts import render
 from django.db.models import Count
 from django.core.exceptions import ObjectDoesNotExist
@@ -198,6 +199,23 @@ SELECT `school_db_instructor`.`id`,
 
 # Get the count of students, courses, and instructors and print them in the terminal
 def problem_four(request):
+    i = 0
+    i1 = 0
+    i2 = 0
+    students = Student.objects.filter()
+    for student in students:
+      i += 1
+    print(f'Student Count: {i}')
+
+    courses = Course.objects.filter()
+    for course in courses:
+      i1 += 1
+    print(f'Course Count: {i1}')
+
+    instructors = Instructor.objects.filter()
+    for instructor in instructors:
+      i2 += 1
+    print(f'Instructor Count: {i2}')
 
     return complete(request)
 
@@ -242,6 +260,7 @@ SELECT COUNT(*) AS `__count`
 # Print the new student's id, full name, year, and gpa to the terminal
 # NOTE every time you execute this function a duplicate student will be created with a different primary key number
 def problem_five(request):
+    
 
     return complete(request)
 
